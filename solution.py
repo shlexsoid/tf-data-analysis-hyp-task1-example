@@ -1,5 +1,6 @@
 import pandas as pd
 import numpy as np
+from statsmodels.stats.proportion import proportions_ztest
 
 
 chat_id = 399623382 # Ваш chat ID, не меняйте название переменной
@@ -11,4 +12,4 @@ def solution(x_success: int,
      res = proportions_ztest([x_success, y_success],
                             [x_cnt, y_cnt],
                             alternative='larger')
-    return res.pvalue < 0.08
+    return res[1] < 0.08
